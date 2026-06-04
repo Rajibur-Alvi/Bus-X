@@ -1,0 +1,182 @@
+[
+  {
+    "id": "REV_GROWTH_QUALITY",
+    "name": "Revenue Growth Quality",
+    "trigger": "Revenue is rising, but profit is falling",
+    "riskLevel": "Medium",
+    "explanation": "Revenue is growing, but profit is contracting. This indicates the business is growing inefficiently, taking on low-margin work or allowing expenses to run out of control.",
+    "action": "Review the pricing models for new orders and audit the core cost of goods sold.",
+    "category": "Revenue"
+  },
+  {
+    "id": "EXPENSE_PRESSURE",
+    "name": "Expense Pressure",
+    "trigger": "Expense growth exceeds revenue growth rate",
+    "riskLevel": "Medium",
+    "explanation": "Outflow growth is outpacing top-line growth, narrowing operating cushions.",
+    "action": "Implement a department-by-department expense budget ceiling.",
+    "category": "Expenses"
+  },
+  {
+    "id": "CASH_RUNWAY",
+    "name": "Cash Runway Warning",
+    "trigger": "Cash runway is less than 90 days",
+    "riskLevel": "High",
+    "explanation": "The business represents severe insolvency risk if trading conditions worsen.",
+    "action": "Accelerate outstanding receivables collections and freeze all non-essential operating spend.",
+    "category": "Cash"
+  },
+  {
+    "id": "CUSTOMER_CONCENTRATION",
+    "name": "Customer Concentration Risk",
+    "trigger": "Single customer represents > 35% of total revenue",
+    "riskLevel": "High",
+    "explanation": "High dependency on a single customer makes the business extremely volatile to customer churn.",
+    "action": "Proactively pitch and identify replacement prospects to reduce single-customer share below 35%.",
+    "category": "Risks"
+  },
+  {
+    "id": "VENDOR_CONCENTRATION",
+    "name": "Vendor Concentration Risk",
+    "trigger": "Single vendor represents > 30% of total expenses",
+    "riskLevel": "Medium",
+    "explanation": "High dependency on a single vendor leaves the firm open to pricing monopolies or supply disruption.",
+    "action": "Identify and qualify alternative suppliers or negotiate long-term price locks.",
+    "category": "Risks"
+  },
+  {
+    "id": "MARGIN_COMPRESSION",
+    "name": "Margin Compression",
+    "trigger": "Gross margin decreases continuously for 3 periods",
+    "riskLevel": "High",
+    "explanation": "Continuous erosion of margins implies cost of goods sold is inflating faster than primary selling prices.",
+    "action": "Hike sales pricing immediately or select alternative lower-cost suppliers.",
+    "category": "Profit"
+  },
+  {
+    "id": "PAYROLL_DRIFT",
+    "name": "Payroll Drift",
+    "trigger": "Payroll increases > 20% without equivalent revenue growth support",
+    "riskLevel": "Medium",
+    "explanation": "The head count expense is rising much faster than the sales capacity it should serve.",
+    "action": "Audit employee utilization and optimize staff schedules before opening new hires.",
+    "category": "Expenses"
+  },
+  {
+    "id": "MARKETING_EFFICIENCY",
+    "name": "Marketing Efficiency Slump",
+    "trigger": "Marketing expenses rise strongly while revenue remains flat",
+    "riskLevel": "Medium",
+    "explanation": "The marginal Customer Acquisition Cost (CAC) is spiking, reflecting saturated advertising channels.",
+    "action": "Pause underperforming ad sets and run a deep review of marketing attribution model.",
+    "category": "Profit"
+  },
+  {
+    "id": "INVENTORY_BUILDUP",
+    "name": "Inventory Buildup",
+    "trigger": "Inventory assets rise faster than monthly sales growth",
+    "riskLevel": "Medium",
+    "explanation": "Working capital is getting locked up in unsold warehouse stock, threatening liquidity.",
+    "action": "Introduce markdown pricing to flush stale inventory and freeze active production items.",
+    "category": "Cash"
+  },
+  {
+    "id": "RECEIVABLE_STRESS",
+    "name": "Receivable Collections Stress",
+    "trigger": "Customer payment days (DSO) lengthening over 45 days",
+    "riskLevel": "Medium",
+    "explanation": "Customers are taking longer to pay, which acts as an informal interests-free loan and starves company cash.",
+    "action": "Establish strict upfront milestones and implement automatic late payment interests.",
+    "category": "Cash"
+  },
+  {
+    "id": "PAYABLE_STRESS",
+    "name": "Payable Stress",
+    "trigger": "Supplier payment days lengthening sharply",
+    "riskLevel": "Medium",
+    "explanation": "Lengthening payments to suppliers can signal liquidity squeeze and harm supplier trust.",
+    "action": "Review payment terms and ensure active dynamic discounting is utilized where possible.",
+    "category": "Cash"
+  },
+  {
+    "id": "MONTH_END_SPIKES",
+    "name": "Period-End Clustered Entries",
+    "trigger": "Large transactions representing > 40% of monthly values clustered at month-end",
+    "riskLevel": "High",
+    "explanation": "Massive adjustments clustered at month-end might suggest poor billing practices or artificial revenue recognition in current periods.",
+    "action": "Enforce weekly transaction classification and reconcile invoice billing batches strictly.",
+    "category": "Opportunities"
+  },
+  {
+    "id": "DUPLICATE_PAYMENTS",
+    "name": "Duplicate Payments Detected",
+    "trigger": "Multiple transactions with identical amounts, dates, and vendors",
+    "riskLevel": "High",
+    "explanation": "Identical supplier payments indicates weak internal double-match controls or potential billing errors.",
+    "action": "Verify invoice item IDs, contact the vendor to arrange charge credit, and upgrade accounts payable software.",
+    "category": "Risks"
+  },
+  {
+    "id": "ROUND_NUMBER_ANOMALIES",
+    "name": "Round-Number Spikes",
+    "trigger": "Unusual volume of exact thousands or flat transaction amounts",
+    "riskLevel": "Medium",
+    "explanation": "Substantial quantity of flat numbers represents higher risk of manually inflated expense requests or un-receipted entries.",
+    "action": "Mandate exact receipt attachment for any manual journal ledger entries.",
+    "category": "Risks"
+  },
+  {
+    "id": "REVERSAL_PATTERNS",
+    "name": "Reversal Postings Pattern",
+    "trigger": "Large journal reversals posted immediately after period closures",
+    "riskLevel": "High",
+    "explanation": "P&L inflating adjustments posted at period end and reversed immediately after might imply window dressing of accounts.",
+    "action": "Audit the credentials of characters releasing adjustments within the ERP.",
+    "category": "Risks"
+  },
+  {
+    "id": "REVENUE_VOLATILITY",
+    "name": "Extreme Revenue Volatility",
+    "trigger": "Month-to-month sales fluctuation exceeds 30%",
+    "riskLevel": "Medium",
+    "explanation": "Wild swings in core revenues make operational scaling and fixed-expense management incredibly difficult.",
+    "action": "Formulate a dry-season cash buffer equal to 4 months of median operating costs.",
+    "category": "Revenue"
+  },
+  {
+    "id": "CUSTOMER_MIX_SHIFT",
+    "name": "Customer Contribution Shift",
+    "trigger": "Aggressive shifts in customer contribution share in top 5 slots",
+    "riskLevel": "Low",
+    "explanation": "Key client base contribution structures are rapidly changing, indicating customer churn or contract resizing.",
+    "action": "Initiate structured account health check-ins with client managers.",
+    "category": "Opportunities"
+  },
+  {
+    "id": "VENDOR_PRICE_INFLATION",
+    "name": "Vendor Price Inflation",
+    "trigger": "Supplier materials price index rising faster than overall margin",
+    "riskLevel": "Medium",
+    "explanation": "Squeezes bottom-line margins continuously as suppliers inflate utility pricing.",
+    "action": "Conduct competitive bidding among alternative logistics and material service vendors.",
+    "category": "Expenses"
+  },
+  {
+    "id": "DEBT_COVERAGE",
+    "name": "Debt Service Coverage Warning",
+    "trigger": "Operating cash flow is lower than quarterly debt servicing obligations",
+    "riskLevel": "High",
+    "explanation": "Operating cash is insufficient to pay interests, requiring drawing on primary reserve balances.",
+    "action": "Renegotiate current bank interest rate structures or seek mezzanine loan refinancing.",
+    "category": "Cash"
+  },
+  {
+    "id": "RUN_RATE_WARNING",
+    "name": "Slowing Sales Run-Rate",
+    "trigger": "Current period sales are > 25% lower than the rolling 3-period average",
+    "riskLevel": "Medium",
+    "explanation": "Sharp collapse in demand which will quickly affect overall survival metric and cause fixed-cost strains.",
+    "action": "Incentivize long-term contract conversions or launch defensive volume discounts.",
+    "category": "Revenue"
+  }
+]

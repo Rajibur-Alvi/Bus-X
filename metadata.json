@@ -1,0 +1,6 @@
+{
+  "name": "Business X-Ray",
+  "description": "A CA-grade AI financial reviewer to analyze business health, detect concentration risks, cash runway, and anomalies.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

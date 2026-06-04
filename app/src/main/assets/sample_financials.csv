@@ -1,0 +1,26 @@
+Date,Type,Category,Entity,Amount,Description
+2026-03-01,Revenue,Consulting,Prime Systems Ltd,15000.00,Monthly retaining fees
+2026-03-10,Expense,Payroll,Staff Salary,5000.00,Monthly core payroll
+2026-03-15,Expense,Rent,Prime Realty,2000.00,Office rent payment
+2026-03-20,Expense,Materials,Apex Supplier Inc,3500.00,Supplier cost of goods
+2026-03-28,Revenue,Support,Smaller Client A,2000.00,Ad-hoc technical support
+2026-03-31,Revenue,Bonus,Prime Systems Ltd,10000.00,Month-end project completion bonus
+2026-04-01,Revenue,Consulting,Prime Systems Ltd,15000.00,Monthly retaining fees
+2026-04-05,Expense,Marketing,Social Ads,1500.00,Online lead campaign
+2026-04-10,Expense,Payroll,Staff Salary,6200.00,Monthly payroll with new hire
+2026-04-12,Expense,Materials,Apex Supplier Inc,4800.00,Industrial raw material
+2026-04-15,Expense,Rent,Prime Realty,2000.00,Office rent payment
+2026-04-20,Expense,Marketing,Social Ads,3500.00,Increased ad buy campaign
+2026-04-29,Revenue,Support,Smaller Client A,1200.00,Monthly technical assistance
+2026-04-30,Revenue,Adjustment,Prime Systems Ltd,12000.00,Period-end bulk contract adjustments
+2026-05-01,Revenue,Consulting,Prime Systems Ltd,15000.00,Monthly retaining fees
+2026-05-03,Expense,Materials,Apex Supplier Inc,5500.00,Aggressive inventory raw purchase
+2026-05-05,Expense,Marketing,Social Ads,6000.00,Major channel promotional boost
+2026-05-10,Expense,Payroll,Staff Salary,7500.00,Monthly payroll plus contractors
+2026-05-12,Expense,Materials,Apex Supplier Inc,5500.00,Aggressive inventory raw purchase
+2026-05-15,Expense,Rent,Prime Realty,2000.00,Office rent payment
+2026-05-18,Expense,Consultancy,Consultant Max,10000.00,Professional retainer flat fee
+2026-05-25,Revenue,Support,Smaller Client A,1000.00,Monthly customer support hours
+2026-05-30,Revenue,Consulting,Prime Systems Ltd,12000.00,Month-end billing allocation milestone
+2026-05-31,Expense,Consultancy,Consultant Max,4500.00,Correction check reversal entry
+2026-05-31,Expense,Consultancy,Consultant Max,-4500.00,Correction reversal matching posting

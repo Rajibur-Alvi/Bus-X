@@ -1,0 +1,271 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BusinessXRayComplianceSchema",
+  "description": "Defines mandatory fields, structural shapes, API integration contracts, and error structures for automated CA-grade compliance auditing pipelines.",
+  "type": "object",
+  "required": [
+    "input_data_validation",
+    "financial_report_output_schema",
+    "api_endpoints_documentation",
+    "error_handling_registry",
+    "audit_log_traceability"
+  ],
+  "properties": {
+    "input_data_validation": {
+      "type": "object",
+      "description": "Rules defining mandatory fields required for financial ingestion validation.",
+      "required": [
+        "mandatory_metadata",
+        "mandatory_columns_format"
+      ],
+      "properties": {
+        "mandatory_metadata": {
+          "type": "object",
+          "properties": {
+            "company_name": {
+              "type": "string",
+              "minLength": 2,
+              "description": "Legal entity name of the company under audit"
+            },
+            "fiscal_period": {
+              "type": "string",
+              "pattern": "^\\d{4}-Q[1-4]$|\\d{4}$|^\\d{4}-\\d{2}$",
+              "description": "Fiscal window matching standard periods (e.g. 2026-Q1, 2026, 2026-05)"
+            },
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$",
+              "description": "ISO 4217 Currency Code (e.g., USD, EUR, GBP)"
+            }
+          },
+          "required": [
+            "company_name",
+            "fiscal_period",
+            "currency"
+          ]
+        },
+        "mandatory_columns_format": {
+          "type": "object",
+          "properties": {
+            "Date": {
+              "type": "string",
+              "format": "date",
+              "description": "Transaction booking date matching YYYY-MM-DD"
+            },
+            "Type": {
+              "type": "string",
+              "enum": [
+                "Revenue",
+                "Expense"
+              ],
+              "description": "Fundamental ledger nature"
+            },
+            "Category": {
+              "type": "string",
+              "description": "Specific internal operational label"
+            },
+            "Entity": {
+              "type": "string",
+              "description": "Vendor name, contractor name, or customer identity"
+            },
+            "Amount": {
+              "type": "number",
+              "description": "Actual nominal value, positive for inflows and outflows (determined by type)"
+            }
+          },
+          "required": [
+            "Date",
+            "Type",
+            "Entity",
+            "Amount"
+          ]
+        }
+      }
+    },
+    "financial_report_output_schema": {
+      "type": "object",
+      "description": "Defines the structured schema that all automated reports must yield to enable server-side processing.",
+      "required": [
+        "report_id",
+        "audit_timestamp",
+        "auditor_authority",
+        "business_health_score",
+        "general_rationale",
+        "assessed_rules",
+        "confidence_level"
+      ],
+      "properties": {
+        "report_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "audit_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "auditor_authority": {
+          "type": "string",
+          "const": "Business X-Ray Automated Compliance Engine v1.0"
+        },
+        "business_health_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "general_rationale": {
+          "type": "string"
+        },
+        "confidence_level": {
+          "type": "string",
+          "enum": [
+            "High",
+            "Medium",
+            "Low"
+          ]
+        },
+        "assessed_rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "rule_id",
+              "rule_name",
+              "triggered",
+              "risk_level",
+              "observation",
+              "relevance_explanation",
+              "recommended_remediation"
+            ],
+            "properties": {
+              "rule_id": {
+                "type": "string"
+              },
+              "rule_name": {
+                "type": "string"
+              },
+              "triggered": {
+                "type": "boolean"
+              },
+              "risk_level": {
+                "type": "string",
+                "enum": [
+                  "High",
+                  "Medium",
+                  "Low",
+                  "None"
+                ]
+              },
+              "observation": {
+                "type": "string"
+              },
+              "relevance_explanation": {
+                "type": "string"
+              },
+              "recommended_remediation": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "rehabilitating_next_actions": {
+          "type": "array",
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "action_step",
+              "justification",
+              "estimated_30day_safety_impact"
+            ]
+          }
+        }
+      }
+    },
+    "api_endpoints_documentation": {
+      "type": "object",
+      "description": "Complete documentation mapping out validation endpoints and request/response payloads.",
+      "properties": {
+        "POST__v1_compliance_validate": {
+          "description": "Accepts uploaded financial ledger payloads and validates strict compliance with CSV mandatory columns schema.",
+          "request": {
+            "headers": {
+              "Content-Type": "text/csv",
+              "X-Company-Identity": "string"
+            }
+          },
+          "responses": {
+            "200_OK": {
+              "description": "Validation successful, ready for brain evaluation pipeline.",
+              "body": {
+                "status": "VALID",
+                "transaction_count": 25,
+                "period_start": "2026-03-01",
+                "period_end": "2026-05-31"
+              }
+            },
+            "400_Bad_Request": {
+              "description": "Audit integrity broken. Returns structured validation error schema."
+            }
+          }
+        }
+      }
+    },
+    "error_handling_registry": {
+      "type": "object",
+      "properties": {
+        "ERR_MANDATORY_FIELD_MISSING": {
+          "code": 4001,
+          "message": "Audit schema integrity violation: Mandatory column is absent from files.",
+          "payload": {
+            "field": "Amount",
+            "resolution": "Inject standard column header 'Amount' with transaction nominal value decimals."
+          }
+        },
+        "ERR_INVALID_PERIOD_FORMAT": {
+          "code": 4002,
+          "message": "Auditing period out of range or malformed form.",
+          "payload": {
+            "field": "fiscal_period",
+            "resolution": "Confirm period complies with format YYYY-MM or YYYY-QX."
+          }
+        },
+        "ERR_INSUFFICIENT_TIMELINE": {
+          "code": 4003,
+          "message": "Financial trend tracking requires at least ninety days span of rolling transaction data.",
+          "payload": {
+            "relevance": "Trend formulas like Payroll Drift and Margin Compression depend on multi-period comparisons.",
+            "resolution": "Append subsequent calendar month transaction entries to provide the trend engine sufficient dataset depth."
+          }
+        }
+      }
+    },
+    "audit_log_traceability": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "mandatory_fields"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "1.0.0"
+        },
+        "mandatory_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "log_id",
+              "timestamp",
+              "actor_id",
+              "audit_event_type",
+              "target_report_id",
+              "action_details",
+              "integrity_checksum"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
